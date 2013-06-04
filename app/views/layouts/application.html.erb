@@ -8,7 +8,36 @@
 </head>
 <body>
 
-<%= yield %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "sample app", '#', id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home",    '#' %></li>
+          <li><%= link_to "Help",    '#' %></li>
+          <% if user_signed_in? %>
+ 		<li>Logged in as <strong><%= current_user.email %></strong>.
+  		<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  		</li>
+		<% else %>
+  		<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><li>
+		<% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<% if notice %>
+  <p class="alert alert-notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-error"><%= alert %></p>
+<% end %>
+<div class="container">
+  <%= yield %>
+</div>
+
 
 </body>
 </html>
