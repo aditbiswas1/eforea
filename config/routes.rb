@@ -1,6 +1,8 @@
 Eforea::Application.routes.draw do
   devise_for :users
    root to: 'static_pages#home'
+
+  mount Monologue::Engine, at: "/blog"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

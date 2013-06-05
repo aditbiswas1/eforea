@@ -29,3 +29,6 @@ end
 
 #user authentication gem
 gem 'devise'
+
+#mountable blog engine monologue
+gem 'monologue'
